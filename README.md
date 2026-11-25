@@ -9,27 +9,26 @@ Aplikasi mobile jual-beli buku seputar **energi, mineral, dan batubara** — dik
 
 ---
 
-## ⚠️ Batasan Versi Demo
+## ⚠️ Batasan Demo
 
-Semua fitur di sisi pembeli **berfungsi**, namun beberapa alur bergantung pada aksi admin yang tidak tersedia di versi demo ini:
+Semua fitur di sisi pembeli **berfungsi penuh**, termasuk register/login, jelajah katalog, pencarian, filter, wishlist, keranjang belanja, manajemen alamat, checkout dengan hitung ongkir (Raja Ongkir), upload bukti pembayaran, dan upload KTM.
 
-| Fitur | Status Demo | Keterangan |
-|-------|:-----------:|------------|
-| Register & Login | ✅ Berfungsi | — |
-| Katalog, Pencarian, Filter | ✅ Berfungsi | — |
-| Detail Buku & Rekomendasi | ✅ Berfungsi | — |
-| Keranjang & Wishlist | ✅ Berfungsi | — |
-| Checkout & Hitung Ongkir | ✅ Berfungsi | — |
-| Upload Bukti Pembayaran | ✅ Berfungsi | — |
-| Verifikasi Mahasiswa | ⚠️ Terbatas | Upload KTM bisa, tetapi approval oleh admin tidak tersedia |
-| Status Pesanan | ⚠️ Terbatas | Mentok di **"Menunggu Verifikasi Pembayaran"** — konfirmasi, input resi, dan "Pesanan Selesai" membutuhkan aksi admin |
-| Notifikasi Push | ⚠️ Terbatas | Notifikasi hanya dikirim saat admin mengonfirmasi pembayaran atau mengirim resi — tidak akan muncul di demo |
-| Ulasan Buku | ❌ Tidak bisa | Ulasan hanya bisa ditulis setelah pesanan berstatus selesai |
-| Rekening Pembayaran | ℹ️ Dummy | Nomor rekening di halaman pembayaran adalah **data dummy** (bukan rekening asli instansi) |
+**Namun**, karena **akun/dashboard admin tidak di-expose** di versi demo ini, beberapa alur lanjutan memiliki batasan:
+
+1. **Alur Pesanan Mentok di Verifikasi Pembayaran**
+   Setelah upload bukti transfer, status pesanan akan berhenti di **"Menunggu Verifikasi Pembayaran oleh Admin"** — tidak sampai tahap input resi pengiriman maupun **"Pesanan Selesai"**.
+2. **Verifikasi Mahasiswa Hanya Sampai Upload**
+   Pengguna dapat mengunggah foto KTM, namun persetujuan (ACC) status mahasiswa harus dilakukan oleh admin.
+3. **Notifikasi Push Tidak Terpicu**
+   Notifikasi FCM hanya dikirim saat admin memverifikasi pembayaran atau mengirimkan nomor resi, sehingga tidak akan muncul selama penggunaan demo.
+4. **Ulasan Buku Tidak Dapat Dikirim**
+   Fitur tulis ulasan hanya terbuka setelah pesanan berstatus selesai, sehingga pada versi demo tidak dapat dicoba hingga submit.
+5. **Rekening Pembayaran Dummy**
+   Data rekening pada kartu instruksi pembayaran telah diganti menjadi data dummy (`Bank Demo (Simulasi)` — `000-000000000-0` a.n. `TekMIRA Demo Store`) demi keamanan data instansi.
 
 ---
 
-## ✨ Fitur Lengkap (di versi production)
+## ✨ Fitur Utama
 
 ### 👤 Sisi Pembeli
 | Fitur | Keterangan |
@@ -39,9 +38,9 @@ Semua fitur di sisi pembeli **berfungsi**, namun beberapa alur bergantung pada a
 | **Detail Buku** | Galeri foto, rekomendasi serupa, ulasan pembeli |
 | **Keranjang & Wishlist** | Sinkronisasi real-time dengan server |
 | **Checkout** | Pilih alamat, hitung ongkir otomatis (Raja Ongkir), diskon |
-| **Pembayaran Manual** | Upload bukti transfer |
-| **Ulasan** | Tulis, edit, hapus review — termasuk balasan admin |
-| **Notifikasi** | Push notification real-time (Firebase Cloud Messaging) |
+| **Pembayaran Manual** | Upload bukti transfer (rekening dummy di versi demo) |
+| **Ulasan** | Tulis, edit, hapus review — termasuk balasan admin *(butuh pesanan selesai)* |
+| **Notifikasi** | Push notification real-time (Firebase Cloud Messaging) *(terpicu oleh aksi admin)* |
 | **Verifikasi Mahasiswa** | Upload foto KTM untuk verifikasi status mahasiswa |
 | **Manajemen Alamat** | CRUD alamat pengiriman + set alamat utama |
 
@@ -49,7 +48,7 @@ Semua fitur di sisi pembeli **berfungsi**, namun beberapa alur bergantung pada a
 | Fitur | Keterangan |
 |-------|-----------|
 | **Dashboard** | KPI ringkas, grafik penjualan bulanan, buku bestseller |
-| **Kelola Pesanan** | Lihat, proses, update status pesanan |
+| **Kelola Pesanan** | Verifikasi pembayaran, input resi, update status pesanan |
 | **Kelola Buku** | CRUD buku, kategori, stok |
 | **Kelola Diskon** | Buat & atur diskon / voucher |
 | **Verifikasi Mahasiswa** | Approve / reject verifikasi KTM |
@@ -91,7 +90,7 @@ Unduh APK demo dari halaman **[Releases](../../releases/tag/v1.0.0)**.
 
 > [!WARNING]
 > Ini adalah APK **demo** yang terhubung ke backend staging pribadi.
-> Beberapa alur terbatas karena membutuhkan aksi admin — lihat tabel batasan di atas.
+> Seluruh fitur pembeli berjalan, namun alur yang membutuhkan persetujuan admin (verifikasi pembayaran, input resi, verifikasi KTM, notifikasi, serta penulisan ulasan) tidak dapat diselesaikan karena dashboard admin tidak di-expose.
 
 ---
 
