@@ -9,20 +9,27 @@ Aplikasi mobile jual-beli buku seputar **energi, mineral, dan batubara** — dik
 
 ---
 
-## ⚠️ Batasan Demo
+## ⚠️ Batasan Versi Demo
 
-Semua fitur di sisi pembeli **berfungsi penuh**, termasuk:
-- Register & login
-- Jelajah katalog, pencarian, filter
-- Tambah ke keranjang & wishlist
-- Checkout dengan pilih alamat dan hitung ongkir
-- Upload bukti pembayaran
+Semua fitur di sisi pembeli **berfungsi**, namun beberapa alur bergantung pada aksi admin yang tidak tersedia di versi demo ini:
 
-**Namun**, alur pesanan **terbatas sampai pembuatan pesanan**. Setelah upload bukti transfer, status pesanan akan berhenti di **"Menunggu Verifikasi Pembayaran oleh Admin"** — karena akun admin tidak di-expose di versi demo ini. Fitur lanjutan seperti konfirmasi pembayaran, input resi pengiriman, dan status "Pesanan Selesai" membutuhkan akses dashboard admin yang tidak tersedia di APK demo.
+| Fitur | Status Demo | Keterangan |
+|-------|:-----------:|------------|
+| Register & Login | ✅ Berfungsi | — |
+| Katalog, Pencarian, Filter | ✅ Berfungsi | — |
+| Detail Buku & Rekomendasi | ✅ Berfungsi | — |
+| Keranjang & Wishlist | ✅ Berfungsi | — |
+| Checkout & Hitung Ongkir | ✅ Berfungsi | — |
+| Upload Bukti Pembayaran | ✅ Berfungsi | — |
+| Verifikasi Mahasiswa | ⚠️ Terbatas | Upload KTM bisa, tetapi approval oleh admin tidak tersedia |
+| Status Pesanan | ⚠️ Terbatas | Mentok di **"Menunggu Verifikasi Pembayaran"** — konfirmasi, input resi, dan "Pesanan Selesai" membutuhkan aksi admin |
+| Notifikasi Push | ⚠️ Terbatas | Notifikasi hanya dikirim saat admin mengonfirmasi pembayaran atau mengirim resi — tidak akan muncul di demo |
+| Ulasan Buku | ❌ Tidak bisa | Ulasan hanya bisa ditulis setelah pesanan berstatus selesai |
+| Rekening Pembayaran | ℹ️ Dummy | Nomor rekening di halaman pembayaran adalah **data dummy** (bukan rekening asli instansi) |
 
 ---
 
-## ✨ Fitur Utama
+## ✨ Fitur Lengkap (di versi production)
 
 ### 👤 Sisi Pembeli
 | Fitur | Keterangan |
@@ -84,7 +91,7 @@ Unduh APK demo dari halaman **[Releases](../../releases/tag/v1.0.0)**.
 
 > [!WARNING]
 > Ini adalah APK **demo** yang terhubung ke backend staging pribadi.
-> Semua fitur pembeli berjalan, tetapi alur pesanan berhenti di status "Menunggu Verifikasi Admin" karena dashboard admin tidak di-expose.
+> Beberapa alur terbatas karena membutuhkan aksi admin — lihat tabel batasan di atas.
 
 ---
 
